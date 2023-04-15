@@ -1,22 +1,33 @@
+import { TokenInterceptor } from './shared/interceptors/token.interceptor';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AlumnoComponent } from './alumno/alumno.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { FormComponent } from './alumno/form.component';
+import { FormsModule } from '@angular/forms';
+import { HeaderComponent } from './shared/components/header/header.component';
+import { FooterComponent } from './shared/components/footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    AlumnoComponent
+    AlumnoComponent,
+    FormComponent,
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [
+    {provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true} 
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

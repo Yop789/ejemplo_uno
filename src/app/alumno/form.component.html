@@ -1,0 +1,51 @@
+<ul class="alert alert-danger" *ngIf="errores?.length>0">
+    <li *ngFor="let e of errores">{{e}}</li>
+  </ul>
+  <br>
+  <h1 class="text-center">
+    Nuevo Alumno
+  </h1>
+  <div class="container">
+    <div class="card shadow">
+      <div class="card-header">
+        Registro de Alumnos
+      </div>
+      <div class="card-body">
+        <form action="">
+          <div class="row mb-2">
+            <div class="col-sm-3">
+              <label class="col-form-label">Nombre:</label>
+            </div>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" name="nombre" [(ngModel)]="alumno.nombre">
+            </div>
+          </div>
+          <div class="row mb-2">
+            <div class="col-sm-3">
+              <label class="col-form-label">Número de Control:</label>
+            </div>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" name="numeroControl" [(ngModel)]="alumno.numeroControl">
+            </div>
+          </div>
+          <div class="row mb-2">
+            <div class="col-sm-3">
+              <label class="col-form-label">Correo Electrónico:</label>
+            </div>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" name="email" [(ngModel)]="alumno.email">
+            </div>
+          </div>
+  
+          <div class="row mb-2">
+            <div class="col-sm-12 text-center">
+              <button class="btn btn-primary" role="button" (click)="guardar()">Guardar</button>
+            </div>
+          </div>
+  
+        </form>
+      </div>
+    </div>
+  </div>
+  
+  
